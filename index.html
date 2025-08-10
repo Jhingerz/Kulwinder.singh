@@ -1,257 +1,473 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Kulwinder Singh | Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --primary-color: #007bff;
-      --secondary-color: #f8f9fa;
-      --text-color: #333;
+    /* =========================
+       Design tokens
+       ========================= */
+    :root{
+      --bg:#f4f7fb;
+      --card:#ffffff;
+      --muted:#6b7280;
+      --accent-1: #0ea5e9;  /* cyan */
+      --accent-2: #4f46e5;  /* indigo */
+      --accent-grad: linear-gradient(135deg,var(--accent-1),var(--accent-2));
+      --glass: rgba(255,255,255,0.6);
+      --radius: 14px;
+      --shadow-1: 0 6px 18px rgba(21,24,35,0.08);
+      --shadow-2: 0 12px 30px rgba(21,24,35,0.10);
+      --max-w:1200px;
+      --gutter: clamp(16px, 3vw, 32px);
+      --fw-heading: 700;
+      color-scheme: light;
     }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: 'Inter', sans-serif;
-      line-height: 1.6;
-      color: var(--text-color);
-      background-color: var(--secondary-color);
+    /* reduced motion preference */
+    @media (prefers-reduced-motion: reduce){
+      :root{ --duration: 0ms; }
     }
-    header {
-      background: var(--primary-color);
+    /* Reset */
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body{
+      font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background:var(--bg);
+      color:#0f1724;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.5;
+      padding-bottom:3rem;
+    }
+
+    /* =========================
+       Layout & Header
+       ========================= */
+    .wrap{max-width:var(--max-w);margin:0 auto;padding:var(--gutter)}
+    header.site-header{
+      background: var(--accent-grad);
       color: white;
-      padding: 1rem;
-      text-align: center;
+      border-radius:var(--radius);
+      padding: clamp(20px,4vw,40px);
+      box-shadow: var(--shadow-2);
+      display:flex;
+      gap:1.25rem;
+      align-items:center;
+      justify-content:space-between;
+      margin-top: calc(var(--gutter) * 0.5);
     }
-    nav {
-      display: flex;
-      justify-content: center;
-      background: #fff;
-      border-bottom: 1px solid #ccc;
-      flex-wrap: wrap;
+    .brand{
+      display:flex;gap:1rem;align-items:center;
     }
-    nav button {
-      background: none;
-      border: none;
-      padding: 1rem 1.5rem;
-      cursor: pointer;
-      font-weight: 600;
-      color: var(--text-color);
-      border-bottom: 3px solid transparent;
-      transition: all 0.3s ease;
+    .brand .avatar{
+      width:84px;height:84px;border-radius:999px;flex:0 0 84px;
+      background:linear-gradient(180deg, rgba(255,255,255,0.18), rgba(255,255,255,0.06));
+      overflow:hidden;box-shadow:0 6px 20px rgba(0,0,0,0.12);
     }
-    nav button.active {
-      color: var(--primary-color);
-      border-bottom: 3px solid var(--primary-color);
+    .brand .avatar img{width:100%;height:100%;object-fit:cover;display:block}
+    .brand h1{font-size:1.25rem;font-weight:800;letter-spacing:0.01em;margin-bottom:2px}
+    .brand p{font-size:0.95rem;opacity:0.95;margin:0;color:rgba(255,255,255,0.92)}
+
+    /* CTA block on header */
+    .header-cta{
+      text-align:right;
     }
-    .tab-content { display: none; padding: 2rem; }
-    .tab-content.active { display: block; }
-    .profile-img {
-      max-width: 200px;
-      width: 100%;
-      border-radius: 50%;
-      display: block;
-      margin: 0 auto 1rem;
+    .contact-pill{
+      background:rgba(255,255,255,0.12);
+      padding:10px 14px;border-radius:999px;
+      display:inline-flex;gap:12px;align-items:center;font-weight:600;font-size:0.95rem;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.06);
     }
-    .section { max-width: 900px; margin: auto; }
-    img { max-width: 100%; height: auto; }
-    @media (max-width: 768px) {
-      nav button { padding: 0.8rem; font-size: 0.9rem; }
-      .section { padding: 1rem; }
+    .contact-pill a{color:white;text-decoration:none;opacity:0.98}
+
+    /* =========================
+       Tabs (nav)
+       ========================= */
+    .tabs{
+      display:flex;gap:10px;flex-wrap:wrap;align-items:center;
+      padding:calc(var(--gutter) / 2) 0;
+      margin-top:1rem;
     }
+    .tab-btn{
+      background:transparent;border:0;padding:10px 14px;border-radius:12px;font-weight:600;cursor:pointer;
+      color:var(--muted);font-size:0.95rem;transition:all 220ms cubic-bezier(.2,.9,.2,1);
+      border:1px solid transparent;
+    }
+    .tab-btn[aria-selected="true"]{
+      color:white;
+      background:var(--accent-grad);
+      box-shadow:var(--shadow-1);
+      border:1px solid rgba(255,255,255,0.06);
+    }
+    .tab-btn:focus{outline:3px solid rgba(79,70,229,0.14);outline-offset:3px}
+
+    /* =========================
+       Main content area
+       ========================= */
+    main{
+      margin-top:var(--gutter);
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:var(--gutter);
+      align-items:start;
+    }
+    /* On larger screens use two-column layout: content + right rail */
+    @media(min-width:980px){
+      main{grid-template-columns: 1fr 320px}
+    }
+
+    /* Tab panels */
+    .panel{
+      background:var(--card);
+      border-radius:12px;
+      padding:clamp(18px,3.2vw,28px);
+      box-shadow:var(--shadow-1);
+      display:none;
+      min-height:220px;
+      transition:opacity 260ms ease, transform 260ms ease;
+    }
+    .panel[data-active="true"]{display:block;opacity:1;transform:none}
+
+    /* Panels inner */
+    .panel h2{color:var(--accent-2);font-size:1.25rem;margin-bottom:12px}
+    .muted{color:var(--muted);font-size:0.95rem}
+
+    /* Experience list rendered as cards */
+    .exp-list{display:grid;gap:14px}
+    .exp-card{
+      border-radius:12px;padding:14px;background:linear-gradient(180deg,#fff,#fcfdff);
+      box-shadow:0 8px 24px rgba(16,24,40,0.04);display:flex;flex-direction:column;gap:8px;
+    }
+    .exp-card strong{font-weight:700;color:#0f1724}
+    .exp-card em{font-style:normal;color:var(--muted);font-weight:600}
+    .exp-card ul{margin-left:1rem;margin-top:6px;color:#334155}
+    .exp-grid{display:grid;grid-template-columns:1fr;gap:12px}
+    @media(min-width:720px){ .exp-grid{grid-template-columns:repeat(2,1fr)} }
+
+    /* Right rail */
+    aside.rail{
+      position:relative;
+      top:0;
+      display:flex;flex-direction:column;gap:14px;
+    }
+    .card-rail{
+      background:linear-gradient(180deg,#fff,#fbfdff);
+      border-radius:12px;padding:16px;box-shadow:var(--shadow-1);
+    }
+    .skill-pill{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+    .skill{font-size:0.85rem;padding:6px 10px;border-radius:999px;background:rgba(79,70,229,0.06);color:#374151;font-weight:600}
+
+    /* Templates images grid */
+    .template-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+    @media(min-width:720px){ .template-grid{grid-template-columns:repeat(3,1fr)} }
+
+    /* Footer */
+    footer{margin-top:calc(var(--gutter) * 1.25);text-align:center;color:var(--muted);font-weight:600}
+
+    /* small helper */
+    .small{font-size:0.92rem;color:var(--muted)}
+    a.link{color:var(--accent-2);text-decoration:none;font-weight:600}
   </style>
 </head>
 <body>
-  <header>
-    <h1>Kulwinder Singh</h1>
-    <p>Portfolio</p>
-  </header>
-
-  <nav>
-    <button class="tab-link active" data-tab="home">Home</button>
-    <button class="tab-link" data-tab="about">About</button>
-    <button class="tab-link" data-tab="experience">Experience</button>
-    <button class="tab-link" data-tab="templates">Templates</button>
-    <button class="tab-link" data-tab="strategies">Strategies</button>
-    <button class="tab-link" data-tab="certifications">Certifications</button>
-  </nav>
-
-  <!-- HOME -->
-  <div id="home" class="tab-content active">
-    <div class="section">
-      <img src="https://media.licdn.com/dms/image/v2/C4D03AQEsh24bj2lzfg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1658670853575?e=1757548800&v=beta&t=NcNel6LEXKh4f7BemgJEWIErNT0n840A5VpURYuP3lk" alt="Kulwinder Singh" class="profile-img"/>
-      <h1>Kulwinder Singh</h1>
-      <p>Email Marketing & Automation Expert</p>
-      <div style="margin-top:1rem; font-size:1rem; line-height:1.6; max-width: 600px;">
-        <strong>📍 Location:</strong> Barnala, Punjab – 148102<br>
-        <strong>📞 Phone:</strong> +91 98779 56132<br>
-        <strong>📧 Email:</strong> <a href="mailto:kulwindernainewalia19@gmail.com">kulwindernainewalia19@gmail.com</a><br>
-        <strong>🔗 LinkedIn:</strong> <a href="https://in.linkedin.com/in/kulwindersinghautomation">kulwindersinghautomation</a>
+  <div class="wrap">
+    <header class="site-header" role="banner" aria-label="Site header">
+      <div class="brand">
+        <div class="avatar" aria-hidden="true">
+          <img src="https://media.licdn.com/dms/image/v2/C4D03AQEsh24bj2lzfg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1658670853575?e=1757548800&v=beta&t=NcNel6LEXKh4f7BemgJEWIErNT0n840A5VpURYuP3lk" alt="Kulwinder Singh" width="84" height="84">
+        </div>
+        <div>
+          <h1>Kulwinder Singh</h1>
+          <p class="small">Email Marketing &amp; Automation Expert</p>
+        </div>
       </div>
-      <p style="margin-top:1rem; max-width:600px; font-style:italic;">
-        Experienced Email Marketing Specialist with 6+ years in automation, lifecycle marketing, and deliverability optimization. 
-        Skilled in Klaviyo, SFMC, HubSpot, and advanced analytics, I help brands drive engagement, maximize conversions, and maintain top-tier deliverability.
-      </p>
-    </div>
-  </div>
 
-  <!-- ABOUT -->
-  <div id="about" class="tab-content">
-    <div class="section">
-      <h2>About Me</h2>
-      <p>I specialize in end-to-end lifecycle automation and CRM marketing, leveraging advanced email and SMS strategies to help businesses grow and engage their customers effectively. My expertise spans across the entire customer lifecycle — from initial platform setup and integration to sophisticated campaign design, analytics, and ongoing optimization.</p>
-      <p><strong>Email Platform Setup & Integration:</strong> I manage seamless onboarding and configuration of email marketing platforms such as Klaviyo, Mailchimp, Salesforce Marketing Cloud, and others. This includes integrating with eCommerce stores, CRMs, and other marketing tools to enable personalized, data-driven customer journeys.</p>
-      <p><strong>Campaign Strategy & Automation:</strong> I design and execute targeted campaigns, including welcome series, abandoned cart flows, win-back campaigns, and post-purchase nurturing, using behavior-based triggers and segmentation. These automation flows deliver the right message at the right time to maximize engagement and conversions.</p>
-      <p><strong>Template Design & Testing:</strong> Skilled in creating responsive, brand-aligned email templates using HTML, MJML, and drag-and-drop builders like BeeFree. I implement rigorous A/B and multivariate testing to optimize subject lines, content, and design for peak performance.</p>
-      <p><strong>Analytics & Reporting:</strong> I build comprehensive dashboards and generate detailed reports tracking KPIs such as open rates, click-through rates, conversion rates, and revenue attribution. Leveraging tools like Tableau, Power BI, and Supermetrics, I provide actionable insights to continuously improve campaign outcomes.</p>
-      <p><strong>Compliance & Deliverability:</strong> Ensuring campaigns meet GDPR, CAN-SPAM, and other regulatory standards is a priority. I handle domain/IP warm-up, monitor sender reputation, and conduct deliverability audits to maintain high inbox placement rates and minimize bounce and spam complaints.</p>
-      <p><strong>Customer Lifecycle Focus:</strong> From acquisition to retention and re-engagement, my approach centers on delivering personalized, meaningful communication at every stage of the customer journey. By aligning strategy with customer behavior and data insights, I drive sustained growth and brand loyalty.</p>
-    </div>
-  </div>
+      <div class="header-cta" aria-hidden="false">
+        <div class="contact-pill" role="group" aria-label="Contact info">
+          <span>📍 Barnala, Punjab</span>
+          <span>&middot;</span>
+          <a class="link" href="mailto:kulwindernainewalia19@gmail.com">kulwindernainewalia19@gmail.com</a>
+        </div>
+      </div>
+    </header>
 
-  <!-- EXPERIENCE -->
-  <div id="experience" class="tab-content">
-    <div class="section">
-      <h2>Experience</h2>
-  <ul>
-    <li>
-      <strong>Team Lead – Email Marketing</strong><br />
-      <em>Way.com | Tavendrum, India | May 2025 – Present</em>
-      <ul>
-        <li>Leading full lifecycle email marketing across multiple products and segments.</li>
-        <li>Built advanced automation flows in Klaviyo using segmentation and behavior triggers.</li>
-        <li>Designed reusable MJML, HTML, CSS templates in BeeFree; conducted A/B and multivariate testing.</li>
-        <li>Oversaw delivery via SendGrid, managing domain/IP reputation.</li>
-        <li>Developed Tableau dashboards for real-time KPI tracking.</li>
-        <li>Supervised QA, compliance, and team performance for campaign execution.</li>
-      </ul>
-    </li>
+    <!-- Tabs -->
+    <nav class="tabs" role="tablist" aria-label="Portfolio sections">
+      <button class="tab-btn" role="tab" aria-selected="true" aria-controls="panel-home" id="tab-home" data-target="panel-home">Home</button>
+      <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-about" id="tab-about" data-target="panel-about">About</button>
+      <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-experience" id="tab-experience" data-target="panel-experience">Experience</button>
+      <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-templates" id="tab-templates" data-target="panel-templates">Templates</button>
+      <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-strategies" id="tab-strategies" data-target="panel-strategies">Strategies</button>
+      <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-certifications" id="tab-certifications" data-target="panel-certifications">Certifications</button>
+    </nav>
 
-    <li>
-      <strong>Email Marketing Specialist</strong><br />
-      <em>Silvermine Software India Pvt Ltd | Bengaluru | May 2024 – April 2025</em>
-      <ul>
-        <li>Built responsive email templates using HTML/CSS and Klaviyo.</li>
-        <li>Improved campaign open and click-through rates by 15% via A/B testing and dynamic content.</li>
-        <li>Executed integrated SMS and email campaigns; boosted engagement by 20%.</li>
-        <li>Managed domain warm-up and IP health for deliverability.</li>
-        <li>Created Power BI dashboards and used Supermetrics for reporting and insights.</li>
-      </ul>
-    </li>
+    <!-- Main area: two-column on wide screens -->
+    <main>
+      <!-- Left / main panels -->
+      <section id="panel-home" class="panel" data-active="true" role="tabpanel" aria-labelledby="tab-home" tabindex="0">
+        <h2 style="margin-top:0">Hi — I'm Kulwinder</h2>
+        <p class="muted">Experienced Email Marketing Specialist with 6+ years in automation, lifecycle marketing, and deliverability optimization. Skilled in Klaviyo, SFMC, HubSpot, and advanced analytics — I help brands drive engagement, maximize conversions, and maintain top-tier deliverability.</p>
 
-    <li>
-      <strong>Email Marketing Manager</strong><br />
-      <em>360 Degree Cloud Technology Pvt Ltd | Noida | Jan 2023 – Feb 2024</em>
-      <ul>
-        <li>Developed monthly and weekly email strategies for Salesforce-based apps and services.</li>
-        <li>Worked with SFMC, Brevo, and HubSpot for campaign execution and CRM integration.</li>
-        <li>Used SQL, AMPScript, and HTML/CSS for custom journey creation and personalization.</li>
-        <li>Maintained deliverability through IP/domain management; implemented lead scoring systems.</li>
-      </ul>
-    </li>
+        <div style="margin-top:14px;display:grid;grid-template-columns:1fr;gap:10px">
+          <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+            <div style="min-width:90px">
+              <strong class="small">📞 Phone</strong><div class="small">+91 98779 56132</div>
+            </div>
+            <div style="min-width:140px">
+              <strong class="small">📧 Email</strong><div class="small"><a class="link" href="mailto:kulwindernainewalia19@gmail.com">kulwindernainewalia19@gmail.com</a></div>
+            </div>
+            <div>
+              <strong class="small">🔗 LinkedIn</strong><div class="small"><a class="link" href="https://in.linkedin.com/in/kulwindersinghautomation">kulwindersinghautomation</a></div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-    <li>
-      <strong>Email Marketing Specialist</strong><br />
-      <em>Phablecare | Bengaluru | May 2022 – Nov 2022</em>
-      <ul>
-        <li>Managed campaigns via MoEngage and SFMC with personalized flows.</li>
-        <li>Designed content and templates to optimize engagement and conversions.</li>
-        <li>Monitored key metrics and generated performance reports.</li>
-        <li>Launched SMS and push notifications integrated with email journeys.</li>
-      </ul>
-    </li>
+      <section id="panel-about" class="panel" data-active="false" role="tabpanel" aria-labelledby="tab-about" tabindex="0">
+        <h2>About Me</h2>
+        <p>I specialize in end-to-end lifecycle automation and CRM marketing, leveraging advanced email and SMS strategies to help businesses grow and engage their customers effectively. My expertise spans across the entire customer lifecycle — from initial platform setup and integration to sophisticated campaign design, analytics, and ongoing optimization.</p>
 
-    <li>
-      <strong>Email Marketing Specialist</strong><br />
-      <em>Bridging Healthcare Technologies Pvt Ltd | Mohali | May 2021 – May 2022</em>
-      <ul>
-        <li>Created strategies for Fintech (Denefits) and AI (Practina) tools using Mailchimp, Klaviyo, MailerLite.</li>
-        <li>Designed templates, managed deliverability, and performed A/B testing.</li>
-        <li>Implemented flows, UTM tracking, and lead scoring for both B2B and B2C campaigns.</li>
-      </ul>
-    </li>
+        <h3 class="small" style="margin-top:12px">Email Platform Setup &amp; Integration</h3>
+        <p class="small">I manage seamless onboarding and configuration of email marketing platforms such as Klaviyo, Mailchimp, Salesforce Marketing Cloud, and others. This includes integrating with eCommerce stores, CRMs, and other marketing tools to enable personalized, data-driven customer journeys.</p>
 
-    <li>
-      <strong>Email Marketing Specialist</strong><br />
-      <em>Codesoftic Tech Pvt Ltd | Mohali | Jan 2019 – May 2021</em>
-      <ul>
-        <li>Planned and executed segmented email campaigns using HubSpot, Klaviyo, and Omnisend.</li>
-        <li>Managed data verification, domain warm-up, and reporting.</li>
-        <li>Conducted performance audits to improve list health and engagement.</li>
-      </ul>
-    </li>
+        <h3 class="small" style="margin-top:8px">Campaign Strategy &amp; Automation</h3>
+        <p class="small">I design and execute targeted campaigns, including welcome series, abandoned cart flows, win-back campaigns, and post-purchase nurturing, using behavior-based triggers and segmentation. These automation flows deliver the right message at the right time to maximize engagement and conversions.</p>
 
-    <li>
-      <strong>Email Marketing Trainee</strong><br />
-      <em>Opk e Services | May 2018 – Dec 2018</em>
-      <ul>
-        <li>Performed campaign QA, subject line testing, and daily support tasks.</li>
-        <li>Used Lashback and Optizmo for compliance.</li>
-        <li>Generated tracking and performance reports using Excel and Google Sheets.</li>
-      </ul>
-    </li>
-  </ul>
+        <h3 class="small" style="margin-top:8px">Template Design, Testing &amp; Analytics</h3>
+        <p class="small">Skilled in creating responsive, brand-aligned email templates using HTML, MJML, and drag-and-drop builders like BeeFree. I implement rigorous A/B and multivariate testing and build dashboards with Tableau, Power BI, and Supermetrics for actionable insights.</p>
 
+        <h3 class="small" style="margin-top:8px">Compliance &amp; Deliverability</h3>
+        <p class="small">Ensuring campaigns meet GDPR, CAN-SPAM, and other regulatory standards is a priority. I handle domain/IP warm-up, monitor sender reputation, and conduct deliverability audits to maintain high inbox placement rates and minimize bounce and spam complaints.</p>
+      </section>
 
-    </div>
-  </div>
+      <section id="panel-experience" class="panel" data-active="false" role="tabpanel" aria-labelledby="tab-experience" tabindex="0">
+        <h2>Experience</h2>
 
-  <!-- TEMPLATES -->
-  <div id="templates" class="tab-content">
-    <div class="section">
-      <h2>Email Templates</h2>
-      <ul>
-        <li>Welcome Series Template – Clean layout with dynamic personalization tokens.</li>
-        <li>Abandoned Cart Reminder – Multi-block design with strong CTAs and social proof.</li>
-        <li>Seasonal Promotions – Bold visuals combined with mobile-optimized content blocks.</li>
-        <li>Newsletter Template – Modular design supporting content-rich and visual storytelling.</li>
-        <li><img src="https://www.upwork.com/att/download/portfolio/persons/uid/1675311083678658560/profile/projects/files/49c0b88e-eace-4637-b323-68f9729a37cc" alt="Email Template Example"></li>
-        <li><img src="https://image2url.com/images/1754834327577-a4663f83-c36f-4ced-962b-1d77c42ec49c.jpg" alt="Email Template Example"></li>
-      </ul>
-    </div>
-  </div>
+        <div class="exp-grid">
+          <article class="exp-card" aria-label="Team Lead – Way.com">
+            <strong>Team Lead – Email Marketing</strong>
+            <em>Way.com | Tavendrum, India | May 2025 – Present</em>
+            <ul>
+              <li>Leading full lifecycle email marketing across multiple products and segments.</li>
+              <li>Built advanced automation flows in Klaviyo using segmentation and behavior triggers.</li>
+              <li>Designed reusable MJML, HTML, CSS templates in BeeFree; conducted A/B and multivariate testing.</li>
+              <li>Oversaw delivery via SendGrid, managing domain/IP reputation.</li>
+              <li>Developed Tableau dashboards for real-time KPI tracking.</li>
+              <li>Supervised QA, compliance, and team performance for campaign execution.</li>
+            </ul>
+          </article>
 
-  <!-- STRATEGIES -->
-  <div id="strategies" class="tab-content">
-    <div class="section">
-      <h2>Strategies</h2>
-      <ul>
-        <li>Lifecycle automation to engage customers based on behavior and journey stage.</li>
-        <li>Personalized segmentation to deliver relevant content and offers.</li>
-        <li>Continuous testing and optimization through A/B and multivariate tests.</li>
-        <li>Cross-channel integration combining email, SMS, and social remarketing.</li>
-        <li>Focus on deliverability and compliance to protect sender reputation.</li>
-      </ul>
-    </div>
-  </div>
+          <article class="exp-card" aria-label="Silvermine">
+            <strong>Email Marketing Specialist</strong>
+            <em>Silvermine Software India Pvt Ltd | Bengaluru | May 2024 – April 2025</em>
+            <ul>
+              <li>Built responsive email templates using HTML/CSS and Klaviyo.</li>
+              <li>Improved campaign open and click-through rates by 15% via A/B testing and dynamic content.</li>
+              <li>Executed integrated SMS and email campaigns; boosted engagement by 20%.</li>
+              <li>Managed domain warm-up and IP health for deliverability.</li>
+              <li>Created Power BI dashboards and used Supermetrics for reporting and insights.</li>
+            </ul>
+          </article>
 
-  <!-- CERTIFICATIONS -->
-  <div id="certifications" class="tab-content">
-    <div class="section">
-      <h2>Certifications</h2>
-      <ul>
-        <li><a href="https://credential.klaviyo.com/440376fa-e716-44d7-bd7b-fcc3bf746cfc">Klaviyo Deliverability Certified</a></li>
-        <li><a href="https://www.linkedin.com/in/kulwindersinghautomation/details/featured/1739539751347/single-media-viewer">Klaviyo Product Certified</a></li>
-        <li><a href="https://www.linkedin.com/feed/update/urn:li:activity:7188461789699846144">Monegage Customer Lifecycle Certified</a></li>
-        <li><a href="https://credential.klaviyo.com/a76d8491-c33e-4b82-8cea-2ae0288e0072">Sendinblue Certified</a></li>
-        <li>HubSpot Email Marketing Certification</li>
-        <li><a href="#">Beefree Design Certified</a></li>
-      </ul>
-    </div>
+          <article class="exp-card">
+            <strong>Email Marketing Manager</strong>
+            <em>360 Degree Cloud Technology Pvt Ltd | Noida | Jan 2023 – Feb 2024</em>
+            <ul>
+              <li>Developed monthly and weekly email strategies for Salesforce-based apps and services.</li>
+              <li>Worked with SFMC, Brevo, and HubSpot for campaign execution and CRM integration.</li>
+              <li>Used SQL, AMPScript, and HTML/CSS for custom journey creation and personalization.</li>
+              <li>Maintained deliverability through IP/domain management; implemented lead scoring systems.</li>
+            </ul>
+          </article>
+
+          <article class="exp-card">
+            <strong>Email Marketing Specialist</strong>
+            <em>Phablecare | Bengaluru | May 2022 – Nov 2022</em>
+            <ul>
+              <li>Managed campaigns via MoEngage and SFMC with personalized flows.</li>
+              <li>Designed content and templates to optimize engagement and conversions.</li>
+              <li>Monitored key metrics and generated performance reports.</li>
+              <li>Launched SMS and push notifications integrated with email journeys.</li>
+            </ul>
+          </article>
+
+          <article class="exp-card">
+            <strong>Email Marketing Specialist</strong>
+            <em>Bridging Healthcare Technologies Pvt Ltd | Mohali | May 2021 – May 2022</em>
+            <ul>
+              <li>Created strategies for Fintech (Denefits) and AI (Practina) tools using Mailchimp, Klaviyo, MailerLite.</li>
+              <li>Designed templates, managed deliverability, and performed A/B testing.</li>
+              <li>Implemented flows, UTM tracking, and lead scoring for both B2B and B2C campaigns.</li>
+            </ul>
+          </article>
+
+          <article class="exp-card">
+            <strong>Email Marketing Specialist</strong>
+            <em>Codesoftic Tech Pvt Ltd | Mohali | Jan 2019 – May 2021</em>
+            <ul>
+              <li>Planned and executed segmented email campaigns using HubSpot, Klaviyo, and Omnisend.</li>
+              <li>Managed data verification, domain warm-up, and reporting.</li>
+              <li>Conducted performance audits to improve list health and engagement.</li>
+            </ul>
+          </article>
+
+          <article class="exp-card">
+            <strong>Email Marketing Trainee</strong>
+            <em>Opk e Services | May 2018 – Dec 2018</em>
+            <ul>
+              <li>Performed campaign QA, subject line testing, and daily support tasks.</li>
+              <li>Used Lashback and Optizmo for compliance.</li>
+              <li>Generated tracking and performance reports using Excel and Google Sheets.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="panel-templates" class="panel" data-active="false" role="tabpanel" aria-labelledby="tab-templates" tabindex="0">
+        <h2>Email Templates</h2>
+        <p class="muted">Examples of responsive email templates I have designed and coded:</p>
+        <ul>
+          <li>Welcome Series Template – Clean layout with dynamic personalization tokens.</li>
+          <li>Abandoned Cart Reminder – Multi-block design with strong CTAs and social proof.</li>
+          <li>Seasonal Promotions – Bold visuals combined with mobile-optimized content blocks.</li>
+          <li>Newsletter Template – Modular design supporting content-rich and visual storytelling.</li>
+        </ul>
+
+        <div class="template-grid" style="margin-top:12px">
+          <img src="https://www.upwork.com/att/download/portfolio/persons/uid/1675311083678658560/profile/projects/files/49c0b88e-eace-4637-b323-68f9729a37cc" alt="Template sample 1" style="border-radius:10px">
+          <img src="https://image2url.com/images/1754834327577-a4663f83-c36f-4ced-962b-1d77c42ec49c.jpg" alt="Template sample 2" style="border-radius:10px">
+          <img src="https://image2url.com/images/1754834450091-4afca2a7-bc3c-459b-805b-554324ed8813.jpg" alt="Template sample 3" style="border-radius:10px">
+        </div>
+      </section>
+
+      <section id="panel-strategies" class="panel" data-active="false" role="tabpanel" aria-labelledby="tab-strategies" tabindex="0">
+        <h2>Strategies</h2>
+        <ul>
+          <li>Lifecycle automation to engage customers based on behavior and journey stage.</li>
+          <li>Personalized segmentation to deliver relevant content and offers.</li>
+          <li>Continuous testing and optimization through A/B and multivariate tests.</li>
+          <li>Cross-channel integration combining email, SMS, and social remarketing.</li>
+          <li>Focus on deliverability and compliance to protect sender reputation.</li>
+        </ul>
+      </section>
+
+      <section id="panel-certifications" class="panel" data-active="false" role="tabpanel" aria-labelledby="tab-certifications" tabindex="0">
+        <h2>Certifications</h2>
+        <ul>
+          <li><a class="link" href="https://credential.klaviyo.com/440376fa-e716-44d7-bd7b-fcc3bf746cfc">Klaviyo Deliverability Certified</a></li>
+          <li><a class="link" href="https://www.linkedin.com/in/kulwindersinghautomation/details/featured/1739539751347/single-media-viewer">Klaviyo Product Certified</a></li>
+          <li><a class="link" href="https://www.linkedin.com/feed/update/urn:li:activity:7188461789699846144">Monegage Customer Lifecycle Certified</a></li>
+          <li><a class="link" href="https://credential.klaviyo.com/a76d8491-c33e-4b82-8cea-2ae0288e0072">Sendinblue Certified</a></li>
+          <li>HubSpot Email Marketing Certification</li>
+          <li><a class="link" href="#">Beefree Design Certified</a></li>
+        </ul>
+      </section>
+      <!-- end left column -->
+
+      <!-- Right rail -->
+      <aside class="rail" aria-label="Quick info / skills">
+        <div class="card-rail" role="region" aria-label="Skills & Focus">
+          <h3 style="margin:0 0 8px 0">Core Skills</h3>
+          <div class="skill-pill">
+            <span class="skill">Email Automation</span>
+            <span class="skill">Klaviyo</span>
+            <span class="skill">SFMC</span>
+            <span class="skill">Deliverability</span>
+            <span class="skill">A/B Testing</span>
+            <span class="skill">Power BI</span>
+            <span class="skill">SQL</span>
+          </div>
+        </div>
+
+        <div class="card-rail" role="region" aria-label="Quick contact">
+          <h3 style="margin:0 0 8px 0">Contact</h3>
+          <p class="small">Barnala, Punjab – 148102</p>
+          <p class="small">+91 98779 56132</p>
+          <p class="small"><a class="link" href="mailto:kulwindernainewalia19@gmail.com">Email me</a></p>
+          <p style="margin-top:8px"><a class="link" href="https://in.linkedin.com/in/kulwindersinghautomation">LinkedIn profile</a></p>
+        </div>
+
+        <div class="card-rail" role="region" aria-label="Education & languages">
+          <h3 style="margin:0 0 8px 0">Education & Languages</h3>
+          <p class="small"><strong>B.Tech</strong> in Computer Science — Punjabi University, Patiala</p>
+          <p class="small" style="margin-top:8px"><strong>Languages:</strong> English, Punjabi, Hindi</p>
+        </div>
+      </aside>
+    </main>
+
+    <footer>
+      &copy; 2025 Kulwinder Singh — Email Marketing & Automation Expert
+    </footer>
   </div>
 
   <script>
-    const tabLinks = document.querySelectorAll('.tab-link');
-    const tabContents = document.querySelectorAll('.tab-content');
-    tabLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        tabLinks.forEach(btn => btn.classList.remove('active'));
-        tabContents.forEach(tab => tab.classList.remove('active'));
-        link.classList.add('active');
-        document.getElementById(link.dataset.tab).classList.add('active');
+    // Accessible tabs: keyboard + click + deep link support
+    (function(){
+      const tabs = Array.from(document.querySelectorAll('.tab-btn'));
+      const panels = Array.from(document.querySelectorAll('.panel'));
+
+      function activateTab(tab){
+        tabs.forEach(t=>{
+          const sel = (t === tab);
+          t.setAttribute('aria-selected', sel ? 'true' : 'false');
+        });
+        panels.forEach(p=>{
+          p.datasetActive = 'false';
+          p.setAttribute('data-active','false');
+        });
+        const target = document.getElementById(tab.datasetTarget || tab.dataset.target || tab.getAttribute('data-target'));
+        if(target){
+          target.setAttribute('data-active','true');
+          target.datasetActive = 'true';
+          // move focus to panel only for keyboard activation
+          target.focus({preventScroll:true});
+          // update hash without scrolling
+          const id = target.id.replace('panel-','');
+          history.replaceState(null,'', '#' + id);
+        }
+      }
+
+      // attach handlers
+      tabs.forEach(t=>{
+        // normalize dataset property for ease
+        t.datasetTarget = t.dataset.target || t.getAttribute('data-target');
+        t.addEventListener('click', ()=> activateTab(t));
+        t.addEventListener('keydown', (e)=>{
+          const idx = tabs.indexOf(t);
+          if(e.key === 'ArrowRight' || e.key === 'ArrowDown'){
+            e.preventDefault();
+            tabs[(idx+1)%tabs.length].focus();
+          } else if(e.key === 'ArrowLeft' || e.key === 'ArrowUp'){
+            e.preventDefault();
+            tabs[(idx-1+tabs.length)%tabs.length].focus();
+          } else if(e.key === 'Home'){
+            e.preventDefault(); tabs[0].focus();
+          } else if(e.key === 'End'){
+            e.preventDefault(); tabs[tabs.length-1].focus();
+          } else if(e.key === 'Enter' || e.key === ' '){
+            e.preventDefault(); activateTab(t);
+          }
+        });
       });
-    });
+
+      // deep link: if hash matches a tab id, open it
+      const initialHash = location.hash.replace('#','');
+      if(initialHash){
+        const matching = tabs.find(tb => (tb.datasetTarget === 'panel-' + initialHash || tb.getAttribute('data-target') === 'panel-' + initialHash || tb.id.endsWith(initialHash)));
+        if(matching) activateTab(matching);
+      } else {
+        // ensure first tab active initially
+        const active = tabs.find(t=>t.getAttribute('aria-selected') === 'true') || tabs[0];
+        activateTab(active);
+      }
+
+      // small accessibility: panels are focusable
+      panels.forEach(p=>{
+        if(!p.hasAttribute('tabindex')) p.setAttribute('tabindex','0');
+      });
+    })();
   </script>
 </body>
 </html>
