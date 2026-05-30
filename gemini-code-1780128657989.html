@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KULWINDER OS™ | Marketing Automation Command Center</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;700&display=swap');
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .heading-font {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(3deg); }
+        }
+        .floating-icon {
+            animation: float 4s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="bg-zinc-950 text-zinc-100 overflow-x-hidden antialiased selection:bg-cyan-500 selection:text-black">
+
+    <div class="fixed bottom-6 right-6 z-50">
+        <button onclick="toggleRecruiterMode()" id="recruiterBtn" class="bg-gradient-to-r from-amber-500 to-orange-600 text-black font-bold px-6 py-4 rounded-full shadow-[0_0_20px_rgba(245,158,11,0.4)] hover:scale-105 transition-all duration-300 flex items-items-center gap-3 group heading-font">
+            <i class="fa-solid fa-id-badge animate-pulse"></i>
+            <span>RECRUITER MODE</span>
+        </button>
+    </div>
+
+    <nav class="sticky top-0 bg-zinc-950/80 backdrop-blur-md border-b border-zinc-800 z-40 px-6 py-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="heading-font text-xl font-bold tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-indigo-500">
+                KULWINDER OS<span class="text-xs vertical-align-super">™</span>
+            </div>
+            <div class="hidden md:flex gap-6 text-sm text-zinc-400 font-medium">
+                <a href="#ai-center" class="hover:text-cyan-400 transition">AI Command</a>
+                <a href="#lifecycle" class="hover:text-cyan-400 transition">Lifecycle Lab</a>
+                <a href="#frameworks" class="hover:text-cyan-400 transition">Frameworks</a>
+                <a href="#vault" class="hover:text-cyan-400 transition">Tech Vault</a>
+                <a href="#playground" class="hover:text-cyan-400 transition">Playground</a>
+                <a href="#analytics" class="hover:text-cyan-400 transition">Analytics</a>
+            </div>
+            <a href="#contact" class="border border-cyan-500/30 text-cyan-400 hover:bg-cyan-500/10 px-4 py-2 rounded-lg text-sm font-semibold transition">
+                Secure Stack Connection
+            </a>
+        </div>
+    </nav>
+
+    <section class="relative min-h-[90vh] flex items-center justify-center px-6 overflow-hidden">
+        <div class="absolute inset-0 pointer-events-none opacity-20">
+            <div class="absolute top-1/4 left-10 text-cyan-400 text-5xl floating-icon" style="animation-delay: 0s;"><i class="fa-brands fa-salesforce"></i></div>
+            <div class="absolute top-1/3 right-12 text-orange-500 text-4xl floating-icon" style="animation-delay: 1s;"><i class="fa-brands fa-hubspot"></i></div>
+            <div class="absolute bottom-1/4 left-1/5 text-purple-400 text-5xl floating-icon" style="animation-delay: 2s;"><i class="fa-solid fa-envelope-open-text"></i></div>
+            <div class="absolute bottom-1/3 right-1/4 text-green-400 text-3xl floating-icon" style="animation-delay: 1.5s;"><i class="fa-solid fa-chart-network"></i></div>
+        </div>
+
+        <div class="max-w-4xl text-center z-10">
+            <div class="inline-flex items-center gap-2 bg-zinc-900 border border-zinc-800 px-4 py-1.5 rounded-full text-xs text-zinc-400 mb-6">
+                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+                Marketing Automation Command Center Active
+            </div>
+            <h1 class="heading-font text-5xl md:text-7xl font-bold tracking-tight mb-4">
+                KULWINDER OS™
+            </h1>
+            <div class="h-12 mb-6">
+                <h3 id="typewriter" class="text-xl md:text-2xl font-medium text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-indigo-400 to-purple-400"></h3>
+            </div>
+            <p class="text-zinc-400 text-lg max-w-2xl mx-auto mb-10 leading-relaxed">
+                Architecting high-performance behavioral engine layers that turn scattered user data touchpoints into perfectly timed, self-optimizing customer lifecycles.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <a href="#playground" class="w-full sm:w-auto bg-gradient-to-r from-cyan-500 to-indigo-600 text-zinc-950 font-bold px-8 py-3.5 rounded-xl hover:shadow-[0_0_25px_rgba(6,182,212,0.4)] transition duration-300">
+                    View My Work
+                </a>
+                <a href="#vault" class="w-full sm:w-auto bg-zinc-900 border border-zinc-800 text-zinc-300 hover:text-white px-8 py-3.5 rounded-xl hover:bg-zinc-850 transition duration-300">
+                    Explore My Expertise
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="max-w-7xl mx-auto px-6 py-12 border-y border-zinc-900 bg-zinc-900/20">
+        <div class="grid md:grid-cols-3 gap-6 text-center md:text-left">
+            <div class="p-6 border-r border-zinc-900 last:border-0">
+                <div class="text-cyan-500 font-bold mb-2">01 / NO STATIC RESUME</div>
+                <p class="text-sm text-zinc-400">Step inside a live operational dashboard illustrating dynamic user tracking and structural pipeline builds.</p>
+            </div>
+            <div class="p-6 border-r border-zinc-900 last:border-0">
+                <div class="text-purple-500 font-bold mb-2">02 / INTERACTIVE FLOWS</div>
+                <p class="text-sm text-zinc-400">Interact with production architectural nodes, framework deployments, and multi-channel campaign matrices.</p>
+            </div>
+            <div class="p-6 last:border-0">
+                <div class="text-amber-500 font-bold mb-2">03 / AI NATIVE LOGIC</div>
+                <p class="text-sm text-zinc-400">Explore precise orchestration workflows designed via LLM loops to achieve exponential throughput scaling.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="ai-center" class="max-w-7xl mx-auto px-6 py-24">
+        <div class="mb-12 text-center md:text-left">
+            <h2 class="heading-font text-3xl font-bold tracking-tight mb-2">AI Command Center</h2>
+            <p class="text-zinc-400 max-w-xl">Deep integration configurations using generative models to accelerate development lifecycle speed and logic precision.</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+            <div onclick="openAiModal('openai')" class="bg-zinc-900/50 border border-zinc-800 p-6 rounded-2xl cursor-pointer hover:border-emerald-500/50 hover:bg-zinc-900 transition duration-300 group">
+                <div class="text-emerald-400 text-3xl mb-4"><i class="fa-solid fa-microchip"></i></div>
+                <h3 class="font-bold mb-1 group-hover:text-emerald-400 transition">OpenAI ChatGPT</h3>
+                <p class="text-xs text-zinc-500">Advanced Prompt Architectures & Custom GPT Agents</p>
+            </div>
+            <div onclick="openAiModal('claude')" class="bg-zinc-900/50 border border-zinc-800 p-6 rounded-2xl cursor-pointer hover:border-orange-500/50 hover:bg-zinc-900 transition duration-300 group">
+                <div class="text-orange-400 text-3xl mb-4"><i class="fa-solid fa-brain"></i></div>
+                <h3 class="font-bold mb-1 group-hover:text-orange-400 transition">Anthropic Claude</h3>
+                <p class="text-xs text-zinc-500">Long-Context Multi-variant Message Coding & Matrix Parsing</p>
+            </div>
+            <div onclick="openAiModal('gemini')" class="bg-zinc-900/50 border border-zinc-800 p-6 rounded-2xl cursor-pointer hover:border-blue-500/50 hover:bg-zinc-900 transition duration-300 group">
+                <div class="text-blue-400 text-3xl mb-4"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                <h3 class="font-bold mb-1 group-hover:text-blue-400 transition">Google Gemini</h3>
+                <p class="text-xs text-zinc-500">Cross-channel Context Analysis & Data Synthesis Pipelines</p>
+            </div>
+            <div onclick="openAiModal('perplexity')" class="bg-zinc-900/50 border border-zinc-800 p-6 rounded-2xl cursor-pointer hover:border-teal-500/50 hover:bg-zinc-900 transition duration-300 group">
+                <div class="text-teal-400 text-3xl mb-4"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+                <h3 class="font-bold mb-1 group-hover:text-teal-400 transition">Perplexity AI</h3>
+                <p class="text-xs text-zinc-500">Competitive Infrastructure Benchmarking & Real-time Signals</p>
+            </div>
+            <div onclick="openAiModal('copilot')" class="bg-zinc-900/50 border border-zinc-800 p-6 rounded-2xl cursor-pointer hover:border-purple-500/50 hover:bg-zinc-900 transition duration-300 group">
+                <div class="text-purple-400 text-3xl mb-4"><i class="fa-brands fa-github"></i></div>
+                <h3 class="font-bold mb-1 group-hover:text-purple-400 transition">GitHub Copilot</h3>
+                <p class="text-xs text-zinc-500">AMPscript, Liquid, SQL, and JS Rapid Script Development</p>
+            </div>
+        </div>
+
+        <div id="aiModal" class="hidden fixed inset-0 bg-black/80 backdrop-blur-md z-50 flex items-center justify-center p-4">
+            <div class="bg-zinc-900 border border-zinc-800 max-w-2xl w-full rounded-2xl overflow-hidden shadow-2xl relative">
+                <button onclick="closeAiModal()" class="absolute top-4 right-4 text-zinc-400 hover:text-white text-xl"><i class="fa-solid fa-xmark"></i></button>
+                <div class="p-8">
+                    <div id="modalIcon" class="text-4xl mb-4"></div>
+                    <h3 id="modalTitle" class="heading-font text-2xl font-bold mb-6"></h3>
+                    <div class="space-y-4 text-sm">
+                        <div>
+                            <span class="text-zinc-500 block uppercase tracking-wider text-xs font-bold">Use Cases</span>
+                            <p id="modalUseCases" class="text-zinc-300"></p>
+                        </div>
+                        <div>
+                            <span class="text-zinc-500 block uppercase tracking-wider text-xs font-bold">Campaign Examples</span>
+                            <p id="modalCampaigns" class="text-zinc-300"></p>
+                        </div>
+                        <div>
+                            <span class="text-zinc-500 block uppercase tracking-wider text-xs font-bold">Workflow Improvements</span>
+                            <p id="modalWorkflows" class="text-zinc-300"></p>
+                        </div>
+                        <div>
+                            <span class="text-zinc-500 block uppercase tracking-wider text-xs font-bold">Productivity Gains</span>
+                            <p id="modalGains" class="text-emerald-400 font-semibold"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="lifecycle" class="bg-zinc-900/30 border-y border-zinc-900 py-24 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="mb-12 text-center">
+                <h2 class="heading-font text-3xl font-bold tracking-tight mb-2">Customer Lifecycle Lab</h2>
+                <p class="text-zinc-400 max-w-xl mx-auto">Click through structural pipeline layer configurations to audit architectural rules per conversion tier.</p>
+            </div>
+
+            <div class="flex flex-col md:flex-row justify-between items-center gap-2 mb-12 bg-zinc-950 p-2 rounded-xl border border-zinc-800">
+                <button onclick="switchLifecycleStage('awareness')" id="btn-awareness" class="lifecycle-tab w-full py-3 px-4 rounded-lg font-semibold heading-font text-sm transition-all duration-200 bg-cyan-500 text-black">1. Awareness</button>
+                <div class="hidden md:block text-zinc-700"><i class="fa-solid fa-chevron-right"></i></div>
+                <button onclick="switchLifecycleStage('consideration')" id="btn-consideration" class="lifecycle-tab w-full py-3 px-4 rounded-lg font-semibold heading-font text-sm transition-all duration-200 text-zinc-400 hover:bg-zinc-900">2. Consideration</button>
+                <div class="hidden md:block text-zinc-700"><i class="fa-solid fa-chevron-right"></i></div>
+                <button onclick="switchLifecycleStage('conversion')" id="btn-conversion" class="lifecycle-tab w-full py-3 px-4 rounded-lg font-semibold heading-font text-sm transition-all duration-200 text-zinc-400 hover:bg-zinc-900">3. Conversion</button>
+                <div class="hidden md:block text-zinc-700"><i class="fa-solid fa-chevron-right"></i></div>
+                <button onclick="switchLifecycleStage('retention')" id="btn-retention" class="lifecycle-tab w-full py-3 px-4 rounded-lg font-semibold heading-font text-sm transition-all duration-200 text-zinc-400 hover:bg-zinc-900">4. Retention</button>
+                <div class="hidden md:block text-zinc-700"><i class="fa-solid fa-chevron-right"></i></div>
+                <button onclick="switchLifecycleStage('advocacy')" id="btn-advocacy" class="lifecycle-tab w-full py-3 px-4 rounded-lg font-semibold heading-font text-sm transition-all duration-200 text-zinc-400 hover:bg-zinc-900">5. Advocacy</button>
+            </div>
+
+            <div id="lifecycleContent" class="bg-zinc-900 border border-zinc-800 rounded-2xl p-8 min-h-[300px]">
+                </div>
+        </div>
+    </section>
+
+    <section id="frameworks" class="max-w-7xl mx-auto px-6 py-24">
+        <div class="mb-12 text-center md:text-left">
+            <h2 class="heading-font text-3xl font-bold tracking-tight mb-2">Frameworks Showcase</h2>
+            <p class="text-zinc-400 max-w-xl">Click individual modular architectural disciplines to inspect real-world implementation paradigms.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-5 gap-4">
+            <div onclick="selectFramework('race')" class="framework-card bg-zinc-900/50 border border-zinc-800 p-6 rounded-xl cursor-pointer hover:border-cyan-500 transition duration-300">
+                <h3 class="font-bold text-lg heading-font mb-2">RACE</h3>
+                <p class="text-xs text-zinc-400">Reach, Act, Convert, Engage metrics frameworks.</p>
+            </div>
+            <div onclick="selectFramework('aida')" class="framework-card bg-zinc-900/50 border border-zinc-800 p-6 rounded-xl cursor-pointer hover:border-cyan-500 transition duration-300">
+                <h3 class="font-bold text-lg heading-font mb-2">AIDA</h3>
+                <p class="text-xs text-zinc-400">Attention, Interest, Desire, Action conversion routing.</p>
+            </div>
+            <div onclick="selectFramework('hubspot')" class="framework-card bg-zinc-900/50 border border-zinc-800 p-6 rounded-xl cursor-pointer hover:border-cyan-500 transition duration-300">
+                <h3 class="font-bold text-lg heading-font mb-2">HubSpot Flywheel</h3>
+                <p class="text-xs text-zinc-400">Attract, Engage, Delight user momentum models.</p>
+            </div>
+            <div onclick="selectFramework('mckinsey')" class="framework-card bg-zinc-900/50 border border-zinc-800 p-6 rounded-xl cursor-pointer hover:border-cyan-500 transition duration-300">
+                <h3 class="font-bold text-lg heading-font mb-2">McKinsey CDJ</h3>
+                <p class="text-xs text-zinc-400">Consumer Decision Journey iterative behavioral maps.</p>
+            </div>
+            <div onclick="selectFramework('octalysis')" class="framework-card bg-zinc-900/50 border border-zinc-800 p-6 rounded-xl cursor-pointer hover:border-cyan-500 transition duration-300">
+                <h3 class="font-bold text-lg heading-font mb-2">Octalysis</h3>
+                <p class="text-xs text-zinc-400">8 Core Drives system gamification design framework.</p>
+            </div>
+        </div>
+
+        <div id="frameworkReveal" class="mt-6 bg-zinc-900 border border-cyan-500/20 rounded-2xl p-8 hidden">
+            </div>
+    </section>
+
+    <section id="vault" class="bg-zinc-900/40 border-y border-zinc-900 py-24 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="mb-12 text-center">
+                <h2 class="heading-font text-3xl font-bold tracking-tight mb-2">Marketing Automation Vault</h2>
+                <p class="text-zinc-400 max-w-xl mx-auto">Deep technical core architecture blueprints mapping system configurations across elite-scale tech stacks.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 hover:shadow-xl transition">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="w-10 h-10 rounded-xl bg-zinc-800 flex items-center justify-center text-green-400"><i class="fa-solid fa-bolt"></i></span>
+                        <h3 class="heading-font text-xl font-bold">Klaviyo</h3>
+                    </div>
+                    <ul class="space-y-2.5 text-sm text-zinc-400">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-chevron-right text-xs text-green-400"></i> Welcome Series Matrix</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-chevron-right text-xs text-green-400"></i> Abandoned Cart Loops</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-chevron-right text-xs text-green-400"></i> Browse Abandonment Logic</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-chevron-right text-xs text-green-400"></i> Post Purchase Workflows</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-chevron-right text-xs text-green-400"></i> Win Back System Sequences</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-chevron-right text-xs text-green-400"></i> Behavioral Clustering Segmentation</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-chevron-right text-xs text-green-400"></i> Domain Deliverability Control</li>
+                    </ul>
+                </div>
+
+                <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 hover:shadow-xl transition">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="w-10 h-10 rounded-xl bg-zinc-800 flex items-center justify-center text-blue-400"><i class="fa-brands fa-salesforce"></i></span>
+                        <h3 class="heading-font text-xl font-bold">Salesforce MC</h3>
+                    </div>
+                    <ul class="space-y-2.5 text-sm text-zinc-400">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-chevron-right text-xs text-blue-400"></i> Multi-Step Journey Builder</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-chevron-right text-xs text-blue-400"></i> Advanced Email Studio Configurations</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-chevron-right text-xs text-blue-400"></i> Dynamic Content via AMPscript</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-chevron-right text-xs text-blue-400"></i> Data Extensions SQL Queries</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-chevron-right text-xs text-blue-400"></i> Automation Studio Activity Batches</li>
+                    </ul>
+                </div>
+
+                <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 hover:shadow-xl transition">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="w-10 h-10 rounded-xl bg-zinc-800 flex items-center justify-center text-orange-400"><i class="fa-brands fa-hubspot"></i></span>
+                        <h3 class="heading-font text-xl font-bold">HubSpot</h3>
+                    </div>
+                    <ul class="space-y-2.5 text-sm text-zinc-400">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-chevron-right text-xs text-orange-400"></i> Enterprise CRM Schema Architecture</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-chevron-right text-xs text-orange-400"></i> Multi-variant Lead Scoring Matrices</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-chevron-right text-xs text-orange-400"></i> Behavioral Triggered Workflows</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-chevron-right text-xs text-orange-400"></i> Automated Lifecycle Stage Updates</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-chevron-right text-xs text-orange-400"></i> Revenue Attribution Modeling</li>
+                    </ul>
+                </div>
+
+                <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 hover:shadow-xl transition">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="w-10 h-10 rounded-xl bg-zinc-800 flex items-center justify-center text-indigo-400"><i class="fa-solid fa-server"></i></span>
+                        <h3 class="heading-font text-xl font-bold">SendGrid Engine</h3>
+                    </div>
+                    <ul class="space-y-2.5 text-sm text-zinc-400">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-chevron-right text-xs text-indigo-400"></i> Custom SPF Alignment</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-chevron-right text-xs text-indigo-400"></i> 2048-bit DKIM Key Structuring</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-chevron-right text-xs text-indigo-400"></i> Strict DMARC Policy Governance</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-chevron-right text-xs text-indigo-400"></i> Dedicated IP Warming Frameworks</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-chevron-right text-xs text-indigo-400"></i> Real-time Reputation Monitoring</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="max-w-7xl mx-auto px-6 py-24">
+        <div class="mb-12 text-center md:text-left">
+            <h2 class="heading-font text-3xl font-bold tracking-tight mb-2">Awards & Enterprise Laurels</h2>
+            <p class="text-zinc-400 max-w-xl">Verified corporate performance recognition validation metrics.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="bg-zinc-900/40 border border-zinc-800 rounded-2xl p-8 hover:border-amber-500/40 transition group">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-500 flex items-center justify-center text-2xl"><i class="fa-solid fa-trophy"></i></div>
+                    <div>
+                        <h3 class="heading-font text-xl font-bold">CEO Recognition Award</h3>
+                        <span class="text-xs text-zinc-500 uppercase tracking-widest font-semibold">Highest Corporate Merit</span>
+                    </div>
+                </div>
+                <div class="space-y-3 text-sm text-zinc-400">
+                    <p><strong class="text-zinc-200">Business Impact:</strong> Engineered systemic changes across data structures driving multi-million annual run-rate expansions.</p>
+                    <p><strong class="text-zinc-200">Leadership:</strong> Led cross-functional teams combining data engineering, creative assets, and growth strategy specialists.</p>
+                    <p><strong class="text-zinc-200">Innovation:</strong> Pioneered machine learning predictive score triggers reducing reliance on baseline manual setups.</p>
+                </div>
+            </div>
+
+            <div class="bg-zinc-900/40 border border-zinc-800 rounded-2xl p-8 hover:border-cyan-500/40 transition group">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-12 h-12 rounded-xl bg-cyan-500/10 text-cyan-500 flex items-center justify-center text-2xl"><i class="fa-solid fa-compass"></i></div>
+                    <div>
+                        <h3 class="heading-font text-xl font-bold">Wayfarer Award</h3>
+                        <span class="text-xs text-zinc-500 uppercase tracking-widest font-semibold">Organizational Vanguard Excellence</span>
+                    </div>
+                </div>
+                <div class="space-y-3 text-sm text-zinc-400">
+                    <p><strong class="text-zinc-200">Why Awarded:</strong> Awarded for breaking legacy structural barriers and building automated frameworks across high-friction infrastructure layers.</p>
+                    <p><strong class="text-zinc-200">Contributions:</strong> Designed, compiled, and integrated real-time cross-channel execution strategies.</p>
+                    <p><strong class="text-zinc-200">Leadership Examples:</strong> Up-skilled internal corporate human capital assets on modern data schema designs and trigger validation logic.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-zinc-900/30 border-y border-zinc-900 py-24 px-6">
+        <div class="max-w-4xl mx-auto">
+            <div class="mb-12 text-center">
+                <h2 class="heading-font text-3xl font-bold tracking-tight mb-2">Operational Career Timeline</h2>
+                <p class="text-zinc-400">Click individual roles to inspect specific system access and performance results.</p>
+            </div>
+
+            <div class="space-y-4">
+                <div class="border border-zinc-800 bg-zinc-900 rounded-xl overflow-hidden">
+                    <button onclick="toggleTimeline('way')" class="w-full text-left p-6 flex justify-between items-center hover:bg-zinc-850 transition">
+                        <div>
+                            <span class="text-xs font-bold uppercase tracking-wider text-cyan-400">Current Tenure</span>
+                            <h3 class="heading-font text-lg font-bold">Team Lead – Email Marketing</h3>
+                            <span class="text-sm text-zinc-400">Way.com</span>
+                        </div>
+                        <div id="icon-way" class="text-zinc-500 transition-transform duration-200"><i class="fa-solid fa-chevron-down"></i></div>
+                    </button>
+                    <div id="content-way" class="hidden p-6 border-t border-zinc-850 bg-zinc-950/40 space-y-4 text-sm text-zinc-400">
+                        <p><strong class="text-zinc-200">Responsibilities:</strong> Overseeing comprehensive automated communications routing, lifecycle infrastructure integrity, and technical delivery protocols across company-wide consumer domains.</p>
+                        <p><strong class="text-zinc-200">Platforms Utilized:</strong> Salesforce Marketing Cloud, SendGrid Architecture, SQL DB Layers, Iterable Engine.</p>
+                        <p><strong class="text-zinc-200">Key Achievements:</strong> Scaled transaction notification systems to handle multi-million volume events without execution delay pipelines.</p>
+                        <p><strong class="text-zinc-200">Business Outcomes:</strong> Generated massive double-digit efficiency increases in retention attribution metrics.</p>
+                    </div>
+                </div>
+
+                <div class="border border-zinc-800 bg-zinc-900 rounded-xl overflow-hidden">
+                    <button onclick="toggleTimeline('prev')" class="w-full text-left p-6 flex justify-between items-center hover:bg-zinc-850 transition">
+                        <div>
+                            <span class="text-xs font-bold uppercase tracking-wider text-zinc-500">Historical Foundations</span>
+                            <h3 class="heading-font text-lg font-bold">Marketing Automation Architect / Growth Strategist</h3>
+                            <span class="text-sm text-zinc-400">Enterprise High-Scale Deployments</span>
+                        </div>
+                        <div id="icon-prev" class="text-zinc-500 transition-transform duration-200"><i class="fa-solid fa-chevron-down"></i></div>
+                    </button>
+                    <div id="content-prev" class="hidden p-6 border-t border-zinc-850 bg-zinc-950/40 space-y-4 text-sm text-zinc-400">
+                        <p><strong class="text-zinc-200">Skills Used:</strong> Deep lifecycle canvas modeling, JSON/Webhook payload integration design, advanced split multivariate cohort analysis testing execution.</p>
+                        <p><strong class="text-zinc-200">Core Projects:</strong> Built unified data syncing layers linking custom user platform structures straight into automation hubs.</p>
+                        <p><strong class="text-zinc-200">Results:</strong> Mitigated database churn vectors and established highly predictable recurring user lifetime loops.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="playground" class="max-w-7xl mx-auto px-6 py-24">
+        <div class="mb-12 text-center">
+            <h2 class="heading-font text-3xl font-bold tracking-tight mb-2">Marketing Automation Playground</h2>
+            <p class="text-zinc-400 max-w-xl mx-auto">Interactive Logic Simulator. Click individual workflow graph nodes to trace automated data path routing conditions.</p>
+        </div>
+
+        <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-8 max-w-3xl mx-auto shadow-2xl">
+            <div class="flex flex-col items-center gap-6">
+                <div onclick="clickPlaygroundNode('Node: User Account Creation Triggered -> Initializing payload verification processes.')" class="bg-zinc-950 border-2 border-cyan-500 hover:bg-cyan-500 hover:text-black transition cursor-pointer px-6 py-3 rounded-xl font-mono text-xs font-bold shadow-[0_0_15px_rgba(6,182,212,0.2)]">
+                    Customer Signs Up
+                </div>
+                <div class="text-zinc-600 text-sm"><i class="fa-solid fa-arrow-down"></i></div>
+                
+                <div onclick="clickPlaygroundNode('Node: Multi-stage Welcome Engine Activated -> System processing metadata validations.')" class="bg-zinc-950 border-2 border-purple-500 hover:bg-purple-500 hover:text-black transition cursor-pointer px-6 py-3 rounded-xl font-mono text-xs font-bold shadow-[0_0_15px_rgba(168,85,247,0.2)]">
+                    Welcome Flow Engine
+                </div>
+                <div class="text-zinc-600 text-sm"><i class="fa-solid fa-arrow-down"></i></div>
+
+                <div onclick="clickPlaygroundNode('Node: Evaluating behavioral engagement triggers -> Checking click/open arrays within 72 hour window.')" class="bg-zinc-950 border-2 border-amber-500 hover:bg-amber-500 hover:text-black transition cursor-pointer px-8 py-4 rounded-xl font-mono text-xs font-bold transform rotate-45 aspect-square flex items-center justify-center shadow-[0_0_15px_rgba(245,158,11,0.2)]">
+                    <span class="transform -rotate-45">Engaged?</span>
+                </div>
+                
+                <div class="w-full flex justify-between max-w-md px-12 -mt-2">
+                    <div class="text-zinc-600 font-mono text-xs flex flex-col items-center">
+                        <span><i class="fa-solid fa-arrow-down-left"></i> Yes (True)</span>
+                    </div>
+                    <div class="text-zinc-600 font-mono text-xs flex flex-col items-center">
+                        <span>No (False) <i class="fa-solid fa-arrow-down-right"></i></span>
+                    </div>
+                </div>
+
+                <div class="w-full flex justify-between max-w-md">
+                    <div onclick="clickPlaygroundNode('Node: VIP Branch -> Escalating value tier score variables and delivering loyalty unlocks.')" class="bg-zinc-950 border-2 border-emerald-500 hover:bg-emerald-500 hover:text-black transition cursor-pointer px-5 py-3 rounded-xl font-mono text-xs font-bold shadow-[0_0_15px_rgba(16,185,129,0.2)]">
+                        VIP Core Pipeline
+                    </div>
+                    <div onclick="clickPlaygroundNode('Node: Re-engagement Branch -> Passing record arrays into secondary win-back delivery servers.')" class="bg-zinc-950 border-2 border-rose-500 hover:bg-rose-500 hover:text-black transition cursor-pointer px-5 py-3 rounded-xl font-mono text-xs font-bold shadow-[0_0_15px_rgba(244,63,94,0.2)]">
+                        Re-engagement Loop
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-10 bg-zinc-950 border border-zinc-800 rounded-xl p-4 font-mono text-xs">
+                <div class="flex items-center justify-between text-zinc-500 mb-2 border-b border-zinc-900 pb-2">
+                    <span>SYSTEM EXECUTION LOGS</span>
+                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                </div>
+                <div id="playgroundLogger" class="text-cyan-400 min-h-[40px]">
+                    >> Click on any architectural graph node above to execute execution route logic trace...
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="analytics" class="bg-zinc-900/40 border-y border-zinc-900 py-24 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="mb-12 text-center md:text-left">
+                <h2 class="heading-font text-3xl font-bold tracking-tight mb-2">Live Analytics Center Simulator</h2>
+                <p class="text-zinc-400 max-w-xl">Interactive operational metric dashboards processing dynamic mock cohort telemetry layers.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+                <div class="bg-zinc-900 border border-zinc-800 p-6 rounded-2xl">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="heading-font font-bold text-lg">Core Email System Performance</h3>
+                        <span class="text-xs font-mono bg-zinc-950 text-zinc-400 px-2.5 py-1 rounded border border-zinc-800">Dynamic Live Telemetry</span>
+                    </div>
+                    <div class="h-64 relative">
+                        <canvas id="chartPerformance"></canvas>
+                    </div>
+                </div>
+
+                <div class="bg-zinc-900 border border-zinc-800 p-6 rounded-2xl">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="heading-font font-bold text-lg">Infrastructure Deliverability Index</h3>
+                        <span class="text-xs font-mono bg-zinc-950 text-emerald-400 px-2.5 py-1 rounded border border-zinc-800">99.8% Perfect Target</span>
+                    </div>
+                    <div class="h-64 relative">
+                        <canvas id="chartDeliverability"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="bg-zinc-950 border border-zinc-800 p-4 rounded-xl text-center">
+                    <span class="text-xs text-zinc-500 uppercase tracking-widest font-semibold block mb-1">Avg Open Rate</span>
+                    <span class="heading-font text-2xl font-bold text-cyan-400">42.6%</span>
+                </div>
+                <div class="bg-zinc-950 border border-zinc-800 p-4 rounded-xl text-center">
+                    <span class="text-xs text-zinc-500 uppercase tracking-widest font-semibold block mb-1">Avg Click-Through</span>
+                    <span class="heading-font text-2xl font-bold text-purple-400">5.8%</span>
+                </div>
+                <div class="bg-zinc-950 border border-zinc-800 p-4 rounded-xl text-center">
+                    <span class="text-xs text-zinc-500 uppercase tracking-widest font-semibold block mb-1">Inbox Placement</span>
+                    <span class="heading-font text-2xl font-bold text-emerald-400">99.4%</span>
+                </div>
+                <div class="bg-zinc-950 border border-zinc-800 p-4 rounded-xl text-center">
+                    <span class="text-xs text-zinc-500 uppercase tracking-widest font-semibold block mb-1">Spam Complaint Rate</span>
+                    <span class="heading-font text-2xl font-bold text-rose-500">&lt; 0.02%</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="max-w-7xl mx-auto px-6 py-24">
+        <div class="mb-12 text-center">
+            <h2 class="heading-font text-3xl font-bold tracking-tight mb-2">Architectural Case Studies</h2>
+            <p class="text-zinc-400 max-w-xl mx-auto">Production breakdowns of custom-built infrastructure deployments engineered for massive scale.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-zinc-900/50 border border-zinc-800 rounded-2xl p-6 flex flex-col justify-between">
+                <div>
+                    <h3 class="heading-font text-lg font-bold mb-4 text-cyan-400">Lifecycle Automation Engine Setup</h3>
+                    <div class="space-y-3 text-sm">
+                        <p><span class="text-zinc-500 block uppercase tracking-wider text-xs font-bold">Problem</span> High user churn rates within first 14 days of acquisition pipelines.</p>
+                        <p><span class="text-zinc-500 block uppercase tracking-wider text-xs font-bold">Solution</span> Deployed sub-segmentation models mapping early telemetry events to tailored dynamic content arrays.</p>
+                    </div>
+                </div>
+                <div class="mt-6 pt-4 border-t border-zinc-850 text-emerald-400 font-mono text-xs font-bold">
+                    RESULT: +34% Retention Curve Lift
+                </div>
+            </div>
+
+            <div class="bg-zinc-900/50 border border-zinc-800 rounded-2xl p-6 flex flex-col justify-between">
+                <div>
+                    <h3 class="heading-font text-lg font-bold mb-4 text-purple-400">Global Deliverability Optimization</h3>
+                    <div class="space-y-3 text-sm">
+                        <p><span class="text-zinc-500 block uppercase tracking-wider text-xs font-bold">Problem</span> IP blacklisting events hitting cross-channel infrastructure sending paths.</p>
+                        <p><span class="text-zinc-500 block uppercase tracking-wider text-xs font-bold">Solution</span> Implemented strict automated clean loops, sunset parameters, and separated transaction IPs.</p>
+                    </div>
+                </div>
+                <div class="mt-6 pt-4 border-t border-zinc-850 text-emerald-400 font-mono text-xs font-bold">
+                    RESULT: 99.6% Stable Inbox Placement
+                </div>
+            </div>
+
+            <div class="bg-zinc-900/50 border border-zinc-800 rounded-2xl p-6 flex flex-col justify-between">
+                <div>
+                    <h3 class="heading-font text-lg font-bold mb-4 text-amber-400">Executive Analytics Dashboard Layer</h3>
+                    <div class="space-y-3 text-sm">
+                        <p><span class="text-zinc-500 block uppercase tracking-wider text-xs font-bold">Problem</span> Disconnected metrics across marketing databases causing attribution blind spots.</p>
+                        <p><span class="text-zinc-500 block uppercase tracking-wider text-xs font-bold">Solution</span> Compiled integrated script hooks combining core CRM telemetry directly with downstream delivery models.</p>
+                    </div>
+                </div>
+                <div class="mt-6 pt-4 border-t border-zinc-850 text-emerald-400 font-mono text-xs font-bold">
+                    RESULT: 100% Real-time Attribution Visibility
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-zinc-900/20 border-t border-zinc-900 py-16 px-6">
+        <div class="max-w-7xl mx-auto text-center">
+            <h3 class="heading-font text-zinc-500 uppercase tracking-widest text-xs font-bold mb-8">Verified Architecture Credentials</h3>
+            <div class="flex flex-wrap justify-center items-center gap-6 opacity-60">
+                <span class="bg-zinc-900 border border-zinc-800 px-4 py-2 rounded-lg text-xs font-mono text-zinc-300 font-bold">HubSpot Certified Enterprise Expert</span>
+                <span class="bg-zinc-900 border border-zinc-800 px-4 py-2 rounded-lg text-xs font-mono text-zinc-300 font-bold">Salesforce Marketing Cloud Consultant</span>
+                <span class="bg-zinc-900 border border-zinc-800 px-4 py-2 rounded-lg text-xs font-mono text-zinc-300 font-bold">Klaviyo Product Master Certification</span>
+                <span class="bg-zinc-900 border border-zinc-800 px-4 py-2 rounded-lg text-xs font-mono text-zinc-300 font-bold">Google Analytics Advanced GA4 Matrix</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="bg-zinc-950 border-t border-zinc-900 py-24 px-6 relative">
+        <div class="max-w-3xl mx-auto text-center relative z-10">
+            <h2 class="heading-font text-4xl font-bold tracking-tight mb-4">Initialize Connection Protocol</h2>
+            <p class="text-zinc-400 mb-10 max-w-lg mx-auto">Open a dedicated interface communication route to scale your multi-channel deployment execution metrics immediately.</p>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 max-w-2xl mx-auto">
+                <a href="https://calendly.com" target="_blank" class="flex items-center justify-center gap-3 bg-gradient-to-r from-cyan-500 to-indigo-600 text-black font-bold p-4 rounded-xl hover:scale-[1.02] transition">
+                    <i class="fa-solid fa-calendar-check"></i> Book a Strategic Call
+                </a>
+                <a href="#contact" class="flex items-center justify-center gap-3 bg-zinc-900 border border-zinc-800 text-white font-medium p-4 rounded-xl hover:bg-zinc-850 transition">
+                    <i class="fa-solid fa-file-arrow-down"></i> Download Resume
+                </a>
+                <a href="https://linkedin.com" target="_blank" class="flex items-center justify-center gap-3 bg-zinc-900 border border-zinc-800 text-white font-medium p-4 rounded-xl hover:bg-zinc-850 transition">
+                    <i class="fa-brands fa-linkedin"></i> LinkedIn Network
+                </a>
+                <a href="mailto:kulwinder@example.com" class="flex items-center justify-center gap-3 bg-zinc-900 border border-zinc-800 text-white font-medium p-4 rounded-xl hover:bg-zinc-850 transition sm:col-span-2 md:col-span-1">
+                    <i class="fa-solid fa-envelope"></i> Email Me Direct
+                </a>
+                <a href="https://github.com" target="_blank" class="flex items-center justify-center gap-3 bg-zinc-900 border border-zinc-800 text-white font-medium p-4 rounded-xl hover:bg-zinc-850 transition sm:col-span-2 md:col-span-2">
+                    <i class="fa-brands fa-github"></i> View Repository Code
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="border-t border-zinc-900 bg-zinc-950 py-6 px-6 text-center text-xs text-zinc-600 font-mono">
+        &copy; 2026 KULWINDER OS™. Secure Infrastructure Engine Layer Active. All Rights Reserved.
+    </footer>
+
+    <div id="recruiterModal" class="hidden fixed inset-0 bg-black/95 backdrop-blur-md z-50 flex items-center justify-center p-4">
+        <div class="bg-zinc-900 border border-amber-500 max-w-3xl w-full rounded-2xl overflow-hidden shadow-[0_0_50px_rgba(245,158,11,0.2)] relative">
+            <button onclick="toggleRecruiterMode()" class="absolute top-4 right-4 text-zinc-400 hover:text-white text-xl"><i class="fa-solid fa-xmark"></i></button>
+            <div class="p-8">
+                <div class="text-amber-500 text-4xl mb-3"><i class="fa-solid fa-id-badge"></i></div>
+                <h3 class="heading-font text-3xl font-bold mb-2 text-white">Why Hire Kulwinder?</h3>
+                <p class="text-sm text-zinc-400 mb-6 font-mono text-amber-500/80">>> Executive Core Competency Checklist Array Loaded.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm mb-8">
+                    <div class="bg-zinc-950 p-4 rounded-xl border border-zinc-850 flex items-start gap-3">
+                        <i class="fa-solid fa-circle-check text-amber-500 mt-1"></i>
+                        <div><strong class="text-zinc-200 block">6+ Years Specialized Experience</strong> Proven execution leadership across multi-million user corporate architectures.</div>
+                    </div>
+                    <div class="bg-zinc-950 p-4 rounded-xl border border-zinc-850 flex items-start gap-3">
+                        <i class="fa-solid fa-circle-check text-amber-500 mt-1"></i>
+                        <div><strong class="text-zinc-200 block">Team Leadership Capabilities</strong> Managed complex matrix assignments coordinating product specialists and analysts.</div>
+                    </div>
+                    <div class="bg-zinc-950 p-4 rounded-xl border border-zinc-850 flex items-start gap-3">
+                        <i class="fa-solid fa-circle-check text-amber-500 mt-1"></i>
+                        <div><strong class="text-zinc-200 block">Marketing Automation Expertise</strong> Deep configuration capabilities in SFMC, Klaviyo, HubSpot, and SendGrid platforms.</div>
+                    </div>
+                    <div class="bg-zinc-950 p-4 rounded-xl border border-zinc-850 flex items-start gap-3">
+                        <i class="fa-solid fa-circle-check text-amber-500 mt-1"></i>
+                        <div><strong class="text-zinc-200 block">Customer Lifecycle Design Mastery</strong> Structural execution modeling across entire engagement funnel layers.</div>
+                    </div>
+                    <div class="bg-zinc-950 p-4 rounded-xl border border-zinc-850 flex items-start gap-3">
+                        <i class="fa-solid fa-circle-check text-amber-500 mt-1"></i>
+                        <div><strong class="text-zinc-200 block">Technical Deliverability Knowledge</strong> Advanced knowledge of DMARC protocol levels, reputation defense, and server optimization.</div>
+                    </div>
+                    <div class="bg-zinc-950 p-4 rounded-xl border border-zinc-850 flex items-start gap-3">
+                        <i class="fa-solid fa-circle-check text-amber-500 mt-1"></i>
+                        <div><strong class="text-zinc-200 block">Advanced Data Analytics Operations</strong> Mastery of structural relational querying via SQL, attribution processing, and event dashboards.</div>
+                    </div>
+                    <div class="bg-zinc-950 p-4 rounded-xl border border-zinc-850 flex items-start gap-3">
+                        <i class="fa-solid fa-circle-check text-amber-500 mt-1"></i>
+                        <div><strong class="text-zinc-200 block">AI Transformation Adoption</strong> Elite execution methodologies integrating LLM systems into development lifecycles.</div>
+                    </div>
+                    <div class="bg-zinc-950 p-4 rounded-xl border border-zinc-850 flex items-start gap-3">
+                        <i class="fa-solid fa-circle-check text-amber-500 mt-1"></i>
+                        <div><strong class="text-zinc-200 block">Awards & Merit Record</strong> Double corporate laurels validation confirming top 1% standard operational performance.</div>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <a href="#contact" onclick="toggleRecruiterMode()" class="inline-block bg-amber-500 text-zinc-950 font-bold heading-font px-8 py-3 rounded-xl hover:bg-amber-400 transition shadow-lg">
+                        Secure Top Talent Connection Route
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Hero Section Rotating Typewriter Database Engine
+        const words = [
+            "Marketing Automation Architect",
+            "Customer Lifecycle Strategist",
+            "AI-Powered Growth Leader"
+        ];
+        let i = 0, timer;
+
+        function typingEffect() {
+            let word = words[i].split("");
+            var loopTyping = function() {
+                if (word.length > 0) {
+                    document.getElementById('typewriter').innerHTML += word.shift();
+                } else {
+                    setTimeout(deletingEffect, 2000);
+                    return false;
+                }
+                timer = setTimeout(loopTyping, 60);
+            };
+            loopTyping();
+        }
+
+        function deletingEffect() {
+            let word = words[i].split("");
+            var loopDeleting = function() {
+                if (word.length > 0) {
+                    word.pop();
+                    document.getElementById('typewriter').innerHTML = word.join("");
+                } else {
+                    if (words.length > (i + 1)) { i++; } else { i = 0; }
+                    setTimeout(typingEffect, 500);
+                    return false;
+                }
+                timer = setTimeout(loopDeleting, 30);
+            };
+            loopDeleting();
+        }
+        typingEffect();
+
+        // AI Command Center Modal Display Datastore
+        const aiData = {
+            openai: {
+                title: "OpenAI ChatGPT Infrastructure Logic",
+                icon: "<i class='fa-solid fa-microchip text-emerald-400'></i>",
+                useCases: "Designing intricate hyper-personalized user behavioral segment matrices using deep recursive dynamic prompting profiles.",
+                campaigns: "Automated custom-generated copy variants dynamically rendered matching distinct psychological triggers in high-scale onboarding maps.",
+                workflows: "Reduces initial copywriting and code ideation blocks to direct template execution matrices.",
+                gains: "+300% Scaling Speed Acceleration across ongoing multi-cohort A/B iteration pipelines."
+            },
+            claude: {
+                title: "Anthropic Claude Analytical Parser Optimization",
+                icon: "<i class='fa-solid fa-brain text-orange-400'></i>",
+                useCases: "Processing large unstructured CSV user data records directly to identify drop-off anomalies without reliance on heavy standard processing infrastructure.",
+                campaigns: "Algorithmic transformation of massive customer reviews down to precise behavioral segment messaging maps.",
+                workflows: "Automated multi-variant email layout adjustments according to large context data validation logs.",
+                gains: "Eliminated analytics lag pipelines, accelerating reporting insights from 5 days down to seconds."
+            },
+            gemini: {
+                title: "Google Gemini Cross-Channel Strategy Engine",
+                icon: "<i class='fa-solid fa-wand-magic-sparkles text-blue-400'></i>",
+                useCases: "Synthesizing cross-channel digital behavior arrays (paid media triggers combined with owned email tracking layers).",
+                campaigns: "Real-time automated content alignment between running programmatic display models and incoming customer notification journeys.",
+                workflows: "Unified contextual visibility across historically siloed communication touchpoint tools.",
+                gains: "Achieved seamless customer experience consistency across all active enterprise marketing surfaces."
+            },
+            perplexity: {
+                title: "Perplexity AI Infrastructure Intelligence",
+                icon: "<i class='fa-solid fa-magnifying-glass-chart text-teal-400'></i>",
+                useCases: "Conducting continuous algorithmic technical architecture competitive tracking across global delivery standard parameters.",
+                campaigns: "Real-time platform adjustment matching shifts in global ESP infrastructure updates (Google/Yahoo validation mandates).",
+                workflows: "Provides instant tech-stack optimization intelligence templates based on live web developments.",
+                gains: "Zero latency security adaptions, maintaining flawless compliance across every core server."
+            },
+            copilot: {
+                title: "GitHub Copilot Advanced Engineering Layer",
+                icon: "<i class='fa-brands fa-github text-purple-400'></i>",
+                useCases: "Rapid programming injection within SFMC Cloud Pages and Klaviyo template data extensions using high-efficiency script blocks.",
+                campaigns: "Constructed massive nested lifecycle loops utilizing custom SQL queries and complex AMPscript parameters.",
+                workflows: "Directly auto-completes repetitive script patterns and multi-table joining operations.",
+                gains: "Cut syntax processing and pipeline deployment errors by over 45% during sprint environments."
+            }
+        };
+
+        function openAiModal(key) {
+            const data = aiData[key];
+            document.getElementById('modalIcon').innerHTML = data.icon;
+            document.getElementById('modalTitle').innerText = data.title;
+            document.getElementById('modalUseCases').innerText = data.useCases;
+            document.getElementById('modalCampaigns').innerText = data.campaigns;
+            document.getElementById('modalWorkflows').innerText = data.workflows;
+            document.getElementById('modalGains').innerText = data.gains;
+            document.getElementById('aiModal').classList.remove('hidden');
+        }
+        function closeAiModal() {
+            document.getElementById('aiModal').classList.add('hidden');
+        }
+
+        // Customer Lifecycle Lab State Routing Engine
+        const lifecycleData = {
+            awareness: {
+                strategy: "Top-of-funnel capture optimization leveraging interactive inbound value hooks.",
+                automation: "Behavioral cookie assignment mapping traffic source metrics straight into targeted acquisition databases.",
+                kpis: "Visitor-to-Lead Lead Capture Conversion Rate, Initial Engagement Velocity Index.",
+                tools: "HubSpot Forms Layer, Custom Webhook Script Handlers, Google Tag Manager.",
+                frameworks: "RACE (Reach Tier Deployment Logic Architecture)"
+            },
+            consideration: {
+                strategy: "Deliver highly contextual value payloads addressing industry friction paradigms.",
+                automation: "Multi-variant nurture sequences dynamically shifting content based on documented page-view interests.",
+                kpis: "Content Interaction Depth, Email Open Metrics, Technical Whitepaper Download Counts.",
+                tools: "Klaviyo Dynamic Tracking Blocks, Salesforce MC Journey Builder Mapping.",
+                frameworks: "AIDA (Interest & Desire Multi-Cohort Alignment Parameters)"
+            },
+            conversion: {
+                strategy: "High-urgency behavioral transactional activation triggers targeting qualified profiles.",
+                automation: "Cart recovery pipelines executing across multi-channel SMS, Email, and Push notifications.",
+                kpis: "Checkout Abandonment Recovery Velocity, Absolute Revenue Per Delivered Record.",
+                tools: "Stripe Event Listeners, SendGrid Core Transaction API, SFMC Automation Modules.",
+                frameworks: "HubSpot Flywheel Momentum Execution Mechanics"
+            },
+            retention: {
+                strategy: "Predictive churn mitigation mapping engagement sequences across low-activity cohorts.",
+                automation: "Automated replenishment workflows, post-purchase onboarding series, and milestone celebrations.",
+                kpis: "Customer Lifetime Value (LTV Extension Profile), Repeat Purchase Frequency Indexes.",
+                tools: "Iterable Event Engines, Custom Relational Database SQL Data Views.",
+                frameworks: "McKinsey Consumer Decision Journey Retention Loops"
+            },
+            advocacy: {
+                strategy: "Organic expansion loop scaling via gamified user referral tracking configurations.",
+                automation: "Automated NPS survey distribution routing high-scoring records directly to review engine platforms.",
+                kpis: "Net Promoter Score Matrix, Direct Peer Referral Code Share Conversion Ratios.",
+                tools: "Typeform Integrations, Loyalty Engine Webhooks, Zapier Logic Paths.",
+                frameworks: "Octalysis 8 Core Drives Gamification Structural Model"
+            }
+        };
+
+        function switchLifecycleStage(stage) {
+            // Reset tab highlights
+            document.querySelectorAll('.lifecycle-tab').forEach(btn => {
+                btn.classList.remove('bg-cyan-500', 'text-black');
+                btn.classList.add('text-zinc-400', 'hover:bg-zinc-900');
+            });
+            // Highlight active tab
+            document.getElementById(`btn-${stage}`).classList.add('bg-cyan-500', 'text-black');
+            document.getElementById(`btn-${stage}`).classList.remove('text-zinc-400', 'hover:bg-zinc-900');
+
+            const item = lifecycleData[stage];
+            document.getElementById('lifecycleContent').innerHTML = `
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 animate-fadeIn">
+                    <div>
+                        <h4 class="heading-font text-xl font-bold text-white mb-4 capitalize">${stage} Structural Stage Blueprint</h4>
+                        <div class="space-y-4">
+                            <p><strong class="text-cyan-400 block font-mono text-xs">STRATEGY MATRIX</strong> ${item.strategy}</p>
+                            <p><strong class="text-purple-400 block font-mono text-xs">AUTOMATION LOGIC RUNTIME</strong> ${item.automation}</p>
+                        </div>
+                    </div>
+                    <div class="border-l border-zinc-800 pl-0 md:pl-6 space-y-3">
+                        <p><strong class="text-zinc-500 block font-mono text-xs">TARGET INFRASTRUCTURE KPIs</strong> ${item.kpis}</p>
+                        <p><strong class="text-zinc-500 block font-mono text-xs">INTEGRATED TOOLS STACK</strong> ${item.tools}</p>
+                        <p><strong class="text-amber-400 block font-mono text-xs">DEPLOYED FRAMEWORKS</strong> ${item.frameworks}</p>
+                    </div>
+                </div>
+            `;
+        }
+        // Run initial stage injection on page load
+        switchLifecycleStage('awareness');
+
+        // Framework Showcase Display Selector Function
+        const frameworkData = {
+            race: {
+                title: "RACE Management Optimization Discipline",
+                explanation: "Structured strategy dividing target engagement layers into Reach, Act, Convert, and Engage phases to track systematic user path scaling.",
+                app: "Configuring multi-tier pipeline segmentation logic where records transition dynamically between platforms depending on interaction history states.",
+                usage: "Implemented across large platforms to isolate precise interaction blockages, raising broad processing velocities by 22%."
+            },
+            aida: {
+                title: "AIDA Conversion Sequence Mechanics",
+                explanation: "Funnel model tracing awareness shifts into structural validation choices based on specific content exposure milestones.",
+                app: "Designing behavioral-triggered automation architectures delivering dynamic data formats matched to documented user journey depth milestones.",
+                usage: "Deployed across multiple high-traffic lead capture engines to dynamically modify header messaging arrays matching organic query records."
+            },
+            hubspot: {
+                title: "HubSpot Flywheel Structural Engine",
+                explanation: "Growth matrix replacing linear conversion assumptions with a circular pattern where existing customers drive ongoing pipeline velocity.",
+                app: "Developing comprehensive post-transaction support ticket automations tightly synced with account rep notification alerts.",
+                usage: "Built internal automated hand-off logic routing support-validated records directly to contextual account expansion sequences."
+            },
+            mckinsey: {
+                title: "McKinsey Consumer Decision Journey Architecture",
+                explanation: "Complex circular decision framework modeling continuous evaluation loops and open post-purchase evaluation layers.",
+                app: "Executing programmatic contextual message tracking targeting buyers during critical consideration and comparison timeline phases.",
+                usage: "Configured multi-variant workflows addressing customers actively looking at competitive comparison datasheets."
+            },
+            octalysis: {
+                title: "Octalysis Gamification Behavioral Matrix",
+                explanation: "Core drive analysis system evaluating human behavioral motivation profiles across explicit structural gaming mechanics.",
+                app: "Designing status progression meters and locked asset pathways inside communication templates to increase engagement rates.",
+                usage: "Generated major click-to-open parameter lifts across customer cohorts by deploying progress validation notification triggers."
+            }
+        };
+
+        function selectFramework(key) {
+            document.querySelectorAll('.framework-card').forEach(c => c.classList.remove('border-cyan-500', 'bg-zinc-900'));
+            event.currentTarget.classList.add('border-cyan-500', 'bg-zinc-900');
+            
+            const data = frameworkData[key];
+            const revealBox = document.getElementById('frameworkReveal');
+            revealBox.innerHTML = `
+                <h4 class="heading-font text-lg font-bold text-white mb-4">${data.title}</h4>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm">
+                    <div><span class="text-zinc-500 block font-mono text-xs uppercase mb-1">Theoretical Explanation</span><p class="text-zinc-300">${data.explanation}</p></div>
+                    <div><span class="text-zinc-500 block font-mono text-xs uppercase mb-1">Real-World Application</span><p class="text-zinc-300">${data.app}</p></div>
+                    <div><span class="text-amber-400 block font-mono text-xs uppercase mb-1">How I've Used It</span><p class="text-zinc-300">${data.usage}</p></div>
+                </div>
+            `;
+            revealBox.classList.remove('hidden');
+        }
+
+        // Expandable Career Timeline Component Operations
+        function toggleTimeline(id) {
+            const content = document.getElementById(`content-${id}`);
+            const icon = document.getElementById(`icon-${id}`);
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                icon.style.transform = "rotate(180deg)";
+            } else {
+                content.classList.add('hidden');
+                icon.style.transform = "rotate(0deg)";
+            }
+        }
+
+        // Marketing Automation Playground Node Simulator Triggers
+        function clickPlaygroundNode(logMessage) {
+            const logger = document.getElementById('playgroundLogger');
+            logger.innerHTML = `>> <span class="text-white">${logMessage}</span>`;
+        }
+
+        // Recruiter Mode Modal State Controller
+        function toggleRecruiterMode() {
+            const modal = document.getElementById('recruiterModal');
+            if(modal.classList.contains('hidden')) {
+                modal.classList.remove('hidden');
+            } else {
+                modal.classList.add('hidden');
+            }
+        }
+
+        // Live Operational Dashboards (Chart.js Integration Engines)
+        const ctxPerf = document.getElementById('chartPerformance').getContext('2d');
+        new Chart(ctxPerf, {
+            type: 'line',
+            data: {
+                labels: ['Q1', 'Q2', 'Q3', 'Q4', 'Current'],
+                datasets: [
+                    { label: 'Open Rate (%)', data: [28, 32, 35, 39, 42.6], borderColor: '#06b6d4', backgroundColor: 'transparent', tension: 0.4 },
+                    { label: 'CTR (%)', data: [2.1, 3.4, 4.2, 5.0, 5.8], borderColor: '#a855f7', backgroundColor: 'transparent', tension: 0.4 }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { labels: { color: '#a1a1aa' } } },
+                scales: {
+                    x: { grid: { color: '#27272a' }, ticks: { color: '#71717a' } },
+                    y: { grid: { color: '#27272a' }, ticks: { color: '#71717a' } }
+                }
+            }
+        });
+
+        const ctxDeliv = document.getElementById('chartDeliverability').getContext('2d');
+        new Chart(ctxDeliv, {
+            type: 'bar',
+            data: {
+                labels: ['ISP Volume A', 'ISP Volume B', 'ISP Volume C', 'ISP Volume D'],
+                datasets: [{
+                    label: 'Inbox Placement Ratio',
+                    data: [99.2, 99.8, 99.1, 99.5],
+                    backgroundColor: ['rgba(16, 185, 129, 0.4)', 'rgba(16, 185, 129, 0.6)', 'rgba(16, 185, 129, 0.5)', 'rgba(16, 185, 129, 0.7)'],
+                    borderColor: '#10b981',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { labels: { color: '#a1a1aa' } } },
+                scales: {
+                    x: { grid: { color: '#27272a' }, ticks: { color: '#71717a' } },
+                    y: { min: 95, max: 100, grid: { color: '#27272a' }, ticks: { color: '#71717a' } }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
